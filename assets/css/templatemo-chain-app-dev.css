@@ -1836,6 +1836,25 @@ a.btn_red {
   padding: 20px;
 }
 
+.email-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #4b8ef1;
+}
+
+.email-input:invalid {
+  border-color: #ff4444;
+}
+
 .social_login .social_box {
   display: block;
   clear: both;
