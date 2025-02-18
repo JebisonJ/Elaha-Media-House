@@ -1,5 +1,39 @@
 /*
 
+/* Smooth Transitions */
+.gradient-button a,
+.service-item,
+.pricing-item-regular,
+.pricing-item-pro,
+.footer-widget ul li a {
+  transition: all 0.3s ease-in-out !important;
+}
+
+.gradient-button a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.pricing-item-regular:hover,
+.pricing-item-pro:hover {
+  transform: scale(1.02);
+}
+
+.footer-widget ul li a:hover {
+  transform: translateX(5px);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
 TemplateMo 570 Chain App Dev
 
 https://templatemo.com/tm-570-chain-app-dev
