@@ -34,11 +34,9 @@ html {
 }
 
 
-TemplateMo 570 Chain App Dev
+/* TemplateMo 570 Chain App Dev */
 
-https://templatemo.com/tm-570-chain-app-dev
-
-*/
+/* https://templatemo.com/tm-570-chain-app-dev */
 
 /* ---------------------------------------------
 Table of contents
@@ -1698,6 +1696,68 @@ footer #search button:hover i {
   transform: translateX(5px);
 }
 
+/* Enhance the input field */
+.email {
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 50px;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #2a2a2a;
+  position: relative;
+}
+
+.email:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #4b8ef1;
+  transition: width 0.5s ease, left 0.5s ease;
+}
+
+.email:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.email:focus {
+  outline: none;
+  border-color: linear-gradient(135deg, #4b8ef1 0%, #28e1fd 100%);
+  box-shadow: 0 2px 5px rgba(75, 142, 241, 0.2);
+}
+
+/* Enhance the button */
+.main-button {
+  padding: 10px 20px;
+  background: #ffffff; /* Change to a more visible color */
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  /* background: linear-gradient(135deg, #4b8ef1 0%, #28e1fd 100%); */
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-button:hover {
+  background: #3a6fd1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(75, 142, 241, 0.2);
+  color: #fff;
+}
+
+.main-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(75, 142, 241, 0.2);
+}
+
+
 .footer-widget .logo img {
   max-width: 96px;
   margin-bottom: 30px;
@@ -1865,7 +1925,51 @@ a.btn_red {
   padding: 20px;
 }
 
+.centeredText {
+  color: #afafaf;
+  text-align: center;
+  margin: 20px 0;
+  clear: both;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
 .email-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #2a2a2a;
+  position: relative;
+}
+
+.email-input:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #4b8ef1;
+  transition: width 0.1s ease, left 0.5s ease;
+}
+
+.email-input:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #4b8ef1;
+  box-shadow: 0 2px 5px rgba(75, 142, 241, 0.2);
+}
+
+/* .email-input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -1879,11 +1983,11 @@ a.btn_red {
 .email-input:focus {
   outline: none;
   border-color: #4b8ef1;
-}
+} */
 
-.email-input:invalid {
+/* .email-input:invalid {
   border-color: #ff4444;
-}
+} */
 
 .social_login .social_box {
   display: block;
@@ -2004,25 +2108,27 @@ a.btn_red {
 }
 
 .notification {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 15px 25px;
+  display: none;
+  background-color: #4b8ef1;
+  color: #fff;
+  padding: 15px;
   border-radius: 5px;
-  z-index: 9999;
-  font-weight: 500;
-  transform: translateY(-100%);
-  animation: slideIn 0.5s forwards;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(75, 142, 241, 0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.notification.success {
-  background: linear-gradient(to right, #00b09b, #96c93d);
-  color: white;
+.notification.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.notification.error {
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
-  color: white;
+.notification.hide {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
 @keyframes slideIn {

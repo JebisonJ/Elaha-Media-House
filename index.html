@@ -670,7 +670,36 @@ https://templatemo.com/tm-570-chain-app-dev
               </div>
             </div>
           </form>
-          <div id="notification" class="notification" style="display: none;"></div>
+          <script>
+            function handleSubscribe(event) {
+              event.preventDefault();
+
+              const emailInput = document.querySelector('.email');
+              const emailValue = emailInput.value;
+
+              if (emailValue === '' || !validateEmail(emailValue)) {
+                alert('Please enter a valid email address.');
+                return false;
+              }
+              const notification = document.getElementById('notification');
+              notification.classList.add('show');
+
+              setTimeout(() => {
+                notification.classList.add('hide');
+                setTimeout(() => {
+                  notification.classList.remove('show', 'hide');
+                }, 300);
+              }, 2000);
+
+              return false;
+            }
+
+            function validateEmail(email) {
+              const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return re.test(String(email).toLowerCase());
+            }
+          </script>
+          <div id="notification" class="notification" style="display: none;">Saved successfully!</div>
         </div>
       </div>
       <div class="row">
