@@ -655,12 +655,11 @@ https://templatemo.com/tm-570-chain-app-dev
           </div>
         </div>
         <div class="col-lg-6 offset-lg-3">
-          <form id="search" action="#" method="GET">
+          <form id="subscribe-form" onsubmit="return handleSubscribe(event)">
             <div class="row">
               <div class="col-lg-6 col-sm-6">
                 <fieldset>
-                  <input type="address" name="address" class="email" placeholder="Email Address..." autocomplete="on"
-                    required>
+                  <input type="email" name="email" class="email" placeholder="Email Address..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-6 col-sm-6">
@@ -670,6 +669,7 @@ https://templatemo.com/tm-570-chain-app-dev
               </div>
             </div>
           </form>
+          <div id="notification" class="notification" style="display: none;"></div>
         </div>
       </div>
       <div class="row">

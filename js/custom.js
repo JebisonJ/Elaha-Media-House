@@ -127,6 +127,48 @@ function authenticateUser(email, password) {
   $("#lean_overlay").click();
 }
 
+function showNotification(message, type) {
+  const notification = document.getElementById('notification');
+  notification.textContent = message;
+  notification.className = `notification ${type}`;
+  notification.style.display = 'block';
+  
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 5000);
+}
+
+function handleSubscribe(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!emailRegex.test(email)) {
+    showNotification('Please enter a valid email address', 'error');
+    return false;
+  }
+
+  // WhatsApp message
+  const message = `New subscription request from: ${email}`;
+  const whatsappUrl = `https://wa.me/919119184984?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
+  
+  showNotification('Subscribed successfully!', 'success');
+  event.target.reset();
+  return false;
+}
+
+// Update all Get A Proposal buttons
+document.addEventListener('DOMContentLoaded', function() {
+  const proposalButtons = document.querySelectorAll('.border-button a');
+  proposalButtons.forEach(button => {
+    if (button.textContent.trim() === 'Get a Proposal') {
+      button.href = 'https://wa.me/919119184984';
+      button.target = '_blank';
+    }
+  });
+});
+
 function registerUser(fullName, email, password) {
   // Add your registration logic here
   console.log("Registering:", email);

@@ -1973,6 +1973,34 @@ a.btn_red {
   color: #4b8ef1;
   transition: all .3s;
 }
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  z-index: 9999;
+  font-weight: 500;
+  transform: translateY(-100%);
+  animation: slideIn 0.5s forwards;
+}
+
+.notification.success {
+  background: linear-gradient(to right, #00b09b, #96c93d);
+  color: white;
+}
+
+.notification.error {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+  }
+}
 /* User Register Form */
 
 .user_register {
