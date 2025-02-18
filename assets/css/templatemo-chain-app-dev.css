@@ -1821,10 +1821,15 @@ a.btn_red {
   right: 0;
   top: 0;
   padding: 10px 15px;
-  background: #4b8ef1;
+  background: transparent;
   cursor: pointer;
   color: #fff;
   font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.popupHeader .modal_close:hover {
+  transform: scale(1.2);
 }
 
 .popupBody {
