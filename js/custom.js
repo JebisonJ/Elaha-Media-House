@@ -42,7 +42,27 @@
 		closeButton: ".modal_close"
 });
 
+// Social Authentication
+function facebookAuth() {
+  window.location.href = 'https://www.facebook.com/v2.8/dialog/oauth';
+}
+
+function googleAuth() {
+  window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth';
+}
+
 $(function() {
+    // Social login handlers
+    $(".social_box.fb").click(function(e) {
+      e.preventDefault();
+      facebookAuth();
+    });
+
+    $(".social_box.google").click(function(e) {
+      e.preventDefault();
+      googleAuth();
+    });
+
 		// Calling Login Form
 		$("#login_form").click(function() {
 				$(".social_login").hide();
@@ -66,7 +86,54 @@ $(function() {
 				$(".header_title").text('Login');
 				return false;
 		});
+
+    // Login authentication
+    $(".user_login .btn_red").click(function(e) {
+      e.preventDefault();
+      const email = $(".user_login input[type='text']").val();
+      const password = $(".user_login input[type='password']").val();
+
+      if (!email || !password) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // Here you can implement your authentication logic
+      authenticateUser(email, password);
+    });
+
+    // Register authentication
+    $(".user_register .btn_red").click(function(e) {
+      e.preventDefault();
+      const fullName = $(".user_register input[type='text']").val();
+      const email = $(".user_register input[type='email']").val();
+      const password = $(".user_register input[type='password']").val();
+
+      if (!fullName || !email || !password) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // Here you can implement your registration logic
+      registerUser(fullName, email, password);
+    });
 });
+
+function authenticateUser(email, password) {
+  // Add your authentication logic here
+  console.log("Authenticating:", email);
+  // For demo, show success
+  alert("Login successful!");
+  $("#lean_overlay").click();
+}
+
+function registerUser(fullName, email, password) {
+  // Add your registration logic here
+  console.log("Registering:", email);
+  // For demo, show success
+  alert("Registration successful!");
+  $("#lean_overlay").click();
+}
 
   // Acc
   $(document).on("click", ".naccs .menu div", function() {
